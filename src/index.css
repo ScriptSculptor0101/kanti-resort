@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #FFFDF7;
+    color: #2D3748;
+  }
+
+  /* NomadKit Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F4EFEA;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D4A373;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #B88555;
+  }
+}
+
+/* Glassmorphism & Custom utilities for NomadKit Light Warm Aesthetic */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 163, 115, 0.25);
+}
+
+.glass-panel-sand {
+  background: rgba(255, 253, 247, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 163, 115, 0.35);
+}
+
+/* NomadKit Luminous Glow for Titles in Hero */
+.glow-kanti, .glow-sand {
+  color: #D4A373;
+  text-shadow: 0 4px 24px rgba(212, 163, 115, 0.35);
+}
+
+.glow-phata, .glow-ocean {
+  color: #0891B2;
+  text-shadow: 0 4px 24px rgba(8, 145, 178, 0.3);
+}
+
+.sand-gradient {
+  background: linear-gradient(135deg, #E2B98E 0%, #D4A373 60%, #B88555 100%);
+}
+
+.ocean-gradient {
+  background: linear-gradient(135deg, #06B6D4 0%, #0891B2 60%, #0E7490 100%);
+}
+
+.forest-gradient {
+  background: linear-gradient(135deg, #15803D 0%, #166534 60%, #14532D 100%);
+}
+
+.sand-text-gradient {
+  background: linear-gradient(135deg, #D4A373 0%, #B88555 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ocean-text-gradient {
+  background: linear-gradient(135deg, #0891B2 0%, #0E7490 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.framed-card-shadow {
+  box-shadow: 0 18px 45px -10px rgba(184, 133, 85, 0.12), 0 0 20px rgba(8, 145, 178, 0.05);
+}
+
+/* Mist animation */
+@keyframes mistDrift {
+  0% { transform: translateX(-5%) translateY(0px) scale(1); }
+  50% { transform: translateX(5%) translateY(-10px) scale(1.05); }
+  100% { transform: translateX(-5%) translateY(0px) scale(1); }
+}
+
+.animate-mist {
+  animation: mistDrift 20s ease-in-out infinite alternate;
+}
