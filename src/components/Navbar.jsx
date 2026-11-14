@@ -32,14 +32,21 @@ export default function Navbar({ onOpenBooking, isFramedMode, toggleFramedMode }
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           
-          {/* Logo in NomadKit Styling */}
-          <a href="#" className="flex flex-col group">
-            <span className="font-serif tracking-widest text-2xl sm:text-3xl font-normal text-[#2D3748] group-hover:text-[#D4A373] transition-colors flex items-center gap-2">
-              KANTI RESORT
-            </span>
-            <span className="font-sans text-[10px] tracking-[0.25em] text-[#0891B2] uppercase font-semibold">
-              Phata • Kedar Valley • Kedarnath
-            </span>
+          {/* Logo with Authentic Resort Emblem */}
+          <a href="#" className="flex items-center gap-2.5 sm:gap-3 group">
+            <img 
+              src="/kanti-logo-circle.png" 
+              alt="Kanti Resort Logo" 
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover shadow-sm ring-1 ring-[#D4A373]/40 group-hover:scale-105 transition-transform" 
+            />
+            <div className="flex flex-col">
+              <span className="font-serif tracking-widest text-xl sm:text-2xl font-normal text-[#2D3748] group-hover:text-[#D4A373] transition-colors leading-tight">
+                KANTI RESORT
+              </span>
+              <span className="font-sans text-[9px] sm:text-[10px] tracking-[0.25em] text-[#0891B2] uppercase font-semibold">
+                Phata • Kedar Valley
+              </span>
+            </div>
           </a>
 
           {/* Desktop Nav Links */}

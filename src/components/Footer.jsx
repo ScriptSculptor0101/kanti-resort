@@ -16,13 +16,20 @@ export default function Footer({ onOpenBooking }) {
           
           {/* Brand Col */}
           <div className="lg:col-span-4 space-y-4">
-            <a href="#" className="flex flex-col">
-              <span className="font-serif tracking-widest text-2xl font-normal text-[#D4A373]">
-                KANTI RESORT
-              </span>
-              <span className="font-sans text-[10px] tracking-[0.25em] text-[#0891B2] uppercase font-semibold">
-                Phata • Kedar Valley • Kedarnath
-              </span>
+            <a href="#" className="flex items-center gap-3 group">
+              <img 
+                src="/kanti-logo-circle.png" 
+                alt="Kanti Resort Logo" 
+                className="w-12 h-12 rounded-full object-cover ring-2 ring-[#D4A373]/30 shadow-md group-hover:scale-105 transition-transform" 
+              />
+              <div className="flex flex-col">
+                <span className="font-serif tracking-widest text-2xl font-normal text-[#D4A373]">
+                  KANTI RESORT
+                </span>
+                <span className="font-sans text-[10px] tracking-[0.25em] text-[#0891B2] uppercase font-semibold">
+                  Phata • Kedar Valley • Kedarnath
+                </span>
+              </div>
             </a>
             
             <p className="text-[#E2E8F0]/85 font-normal leading-relaxed pr-4">
