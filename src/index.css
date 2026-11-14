@@ -8,6 +8,17 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
     background-color: #FFFDF7;
     color: #2D3748;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    -webkit-overflow-scrolling: touch;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    min-height: 100dvh;
   }
 
   /* NomadKit Scrollbar */
@@ -23,6 +34,18 @@
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #B88555;
+  }
+}
+
+/* Accessibility & iOS reduce motion fallback to prevent blank screen */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }
 

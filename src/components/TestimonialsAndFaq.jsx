@@ -23,7 +23,7 @@ export default function TestimonialsAndFaq() {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
+            viewport={{ once: true, amount: 0.05 }}
             transition={{ duration: 0.7 }}
             className="text-center max-w-3xl mx-auto mb-14 space-y-3"
           >
@@ -44,7 +44,7 @@ export default function TestimonialsAndFaq() {
                 key={idx}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-30px" }}
+                viewport={{ once: true, amount: 0.05 }}
                 transition={{ duration: 0.4, delay: idx * 0.06 }}
                 className="bg-white border border-[#D4A373]/25 rounded-2xl overflow-hidden transition-colors hover:border-[#D4A373] shadow-sm"
               >
@@ -83,7 +83,7 @@ export default function TestimonialsAndFaq() {
           <motion.div 
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
+            viewport={{ once: true, amount: 0.05 }}
             transition={{ duration: 0.5 }}
             className="mt-12 text-center"
           >

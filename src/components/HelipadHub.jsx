@@ -40,8 +40,8 @@ export default function HelipadHub() {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.7 }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto mb-16 space-y-3"
         >
           <span className="text-xs uppercase tracking-[0.3em] text-[#0891B2] font-bold">
@@ -62,7 +62,7 @@ export default function HelipadHub() {
               key={heli.name}
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
+              viewport={{ once: true, amount: 0.05 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
               whileHover={{ y: -6, transition: { duration: 0.2 } }}
               className="bg-white p-6 rounded-2xl border border-[#D4A373]/25 hover:border-[#D4A373] transition-all flex flex-col justify-between group shadow-md hover:shadow-xl"
@@ -101,7 +101,7 @@ export default function HelipadHub() {
         <motion.div 
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.6 }}
           className="bg-white border border-[#D4A373]/30 rounded-2xl p-6 sm:p-8 mb-16 shadow-lg"
         >

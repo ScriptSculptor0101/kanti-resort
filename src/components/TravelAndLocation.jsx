@@ -27,7 +27,7 @@ export default function TravelAndLocation() {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: true, amount: 0.05 }}
           transition={{ duration: 0.7 }}
           className="text-center max-w-3xl mx-auto mb-16 space-y-3"
         >
@@ -49,7 +49,7 @@ export default function TravelAndLocation() {
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
+            viewport={{ once: true, amount: 0.05 }}
             transition={{ duration: 0.6 }}
             className="lg:col-span-5 bg-white border border-[#D4A373]/25 rounded-3xl p-6 sm:p-8 space-y-4 shadow-xl"
           >
@@ -108,7 +108,7 @@ export default function TravelAndLocation() {
           <motion.div 
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
+            viewport={{ once: true, amount: 0.05 }}
             transition={{ duration: 0.6 }}
             className="lg:col-span-7 space-y-6"
           >
