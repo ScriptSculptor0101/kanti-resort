@@ -2,7 +2,8 @@
   "name": "Kanti Resort Staff App - कांति रिसॉर्ट स्टाफ ऐप",
   "short_name": "Kanti Staff",
   "description": "Front Desk Room Management & GST Billing System for Kanti Resort, Phata, Kedarnath Highway",
-  "start_url": "/#app",
+  "id": "/?mode=app",
+  "start_url": "/?mode=app#app",
   "scope": "/",
   "display": "standalone",
   "orientation": "any",
@@ -28,13 +29,13 @@
     {
       "name": "Room Status Grid",
       "short_name": "Rooms",
-      "url": "/#app",
+      "url": "/?mode=app#app",
       "icons": [{ "src": "/kanti-logo-circle.png", "sizes": "192x192" }]
     },
     {
       "name": "Billing Register",
       "short_name": "Billing",
-      "url": "/#app",
+      "url": "/?mode=app#app",
       "icons": [{ "src": "/kanti-logo-circle.png", "sizes": "192x192" }]
     }
   ]

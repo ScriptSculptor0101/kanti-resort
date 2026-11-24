@@ -1,7 +1,9 @@
 // Service Worker for Kanti Resort Staff App PWA / WebAPK Installation
-const CACHE_NAME = 'kanti-staff-app-v1';
+const CACHE_NAME = 'kanti-staff-app-v2';
 const ASSETS_TO_CACHE = [
   '/',
+  '/?mode=app',
+  '/?mode=app#app',
   '/#app',
   '/index.html',
   '/manifest.json',
@@ -34,9 +36,8 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // Network first, falling back to cache
   if (event.request.method !== 'GET') return;
   event.respondWith(
-    fetch(event.request).catch(() => caches.match(event.request))
+    fetch(event.request).catch(() => caches.match(event.request).then(cached => cached || caches.match('/')))
   );
 });
