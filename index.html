@@ -46,6 +46,17 @@
     <!-- Favicons & Icons -->
     <link rel="icon" type="image/png" href="/kanti-logo-circle.png" />
     <link rel="apple-touch-icon" href="/kanti-logo-circle.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#1E252B" />
+
+    <script>
+      // Register PWA Service Worker for native WebAPK install on Android & iOS
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        });
+      }
+    </script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

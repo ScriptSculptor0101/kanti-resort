@@ -2,7 +2,7 @@ import React from 'react';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { RESORT_INFO } from '../data/resortData';
 
-export default function Footer({ onOpenBooking }) {
+export default function Footer({ onOpenBooking, onOpenRms }) {
   return (
     <footer className="bg-[#1E252B] border-t border-[#D4A373]/25 text-[#A0AEC0] text-xs pt-16 pb-12 relative overflow-hidden">
       
@@ -56,6 +56,14 @@ export default function Footer({ onOpenBooking }) {
               <li><a href="#rooms" className="hover:text-[#D4A373] transition-colors">Rooms</a></li>
               <li><a href="#location" className="hover:text-[#D4A373] transition-colors">Route & Travel Guide</a></li>
               <li><a href="#faqs" className="hover:text-[#D4A373] transition-colors">FAQs</a></li>
+              <li>
+                <button 
+                  onClick={onOpenRms} 
+                  className="text-stone-300 hover:text-[#D4A373] transition-colors flex items-center gap-1 font-semibold text-left pt-1"
+                >
+                  🔒 Staff Portal (RMS)
+                </button>
+              </li>
             </ul>
           </div>
 

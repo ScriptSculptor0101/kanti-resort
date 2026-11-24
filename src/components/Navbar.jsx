@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Calendar, Maximize2, Minimize2, Menu, X } from 'lucide-react';
+import { Phone, Calendar, Maximize2, Minimize2, Menu, X, ShieldCheck } from 'lucide-react';
 import { RESORT_INFO } from '../data/resortData';
 
-export default function Navbar({ onOpenBooking, isFramedMode, toggleFramedMode }) {
+export default function Navbar({ onOpenBooking, onOpenRms, isFramedMode, toggleFramedMode }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -65,6 +65,16 @@ export default function Navbar({ onOpenBooking, isFramedMode, toggleFramedMode }
 
           {/* Header Action Buttons */}
           <div className="hidden sm:flex items-center space-x-3">
+            {/* Staff App RMS Link */}
+            <button
+              onClick={onOpenRms}
+              title="Staff Access: Kanti Resort Room Management & Billing App"
+              className="px-3.5 py-2 rounded-full border-2 border-[#D4A373]/60 hover:border-[#D4A373] text-xs font-black text-stone-900 bg-[#FFFDF7] shadow-sm hover:shadow-md flex items-center gap-1.5 transition-all hover:scale-105"
+            >
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              <span>📱 स्टाफ ऐप (Staff App)</span>
+            </button>
+
             {/* Toggle Framed Mode */}
             <button
               onClick={toggleFramedMode}
@@ -131,7 +141,7 @@ export default function Navbar({ onOpenBooking, isFramedMode, toggleFramedMode }
             ))}
           </div>
 
-          <div className="pt-2">
+          <div className="pt-2 space-y-2">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
@@ -140,6 +150,16 @@ export default function Navbar({ onOpenBooking, isFramedMode, toggleFramedMode }
               className="w-full bg-[#D4A373] hover:bg-[#B88555] text-white py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-md"
             >
               <Calendar className="w-4 h-4" /> Book Kedarnath Stay
+            </button>
+
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onOpenRms();
+              }}
+              className="w-full bg-stone-900 hover:bg-stone-800 text-[#F3E5AB] py-2.5 rounded-lg text-xs font-bold tracking-wider flex items-center justify-center gap-1.5 shadow-md border border-[#D4A373]/30"
+            >
+              <ShieldCheck className="w-4 h-4 text-[#D4A373]" /> Staff Portal (RMS Dashboard)
             </button>
           </div>
 
