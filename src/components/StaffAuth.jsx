@@ -28,8 +28,8 @@ export default function StaffAuth({
   lang = 'hi', 
   onToggleLang 
 }) {
-  const [selectedStaff, setSelectedStaff] = useState(AUTHORIZED_STAFF_ACCOUNTS[1]); // Default to Desk 1
-  const [password, setPassword] = useState(AUTHORIZED_STAFF_ACCOUNTS[1].initialPassword);
+  const [selectedStaff, setSelectedStaff] = useState(null);
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
@@ -41,18 +41,26 @@ export default function StaffAuth({
 
   const handleSelectUser = (account) => {
     setSelectedStaff(account);
-    setPassword(account.initialPassword);
+    setPassword('');
     setErrorMsg('');
   };
 
   const handleLogin = async (e) => {
     e?.preventDefault();
+    if (!selectedStaff) {
+      setErrorMsg(lang === 'hi' ? 'कृपया पहले अपना स्टाफ खाता चुनें।' : 'Please select your staff account first.');
+      return;
+    }
+    if (!password) {
+      setErrorMsg(lang === 'hi' ? 'कृपया अपना पासवर्ड दर्ज करें।' : 'Please enter your password.');
+      return;
+    }
+
     setLoading(true);
     setErrorMsg('');
 
     try {
-      const emailToUse = selectedStaff ? selectedStaff.email : '';
-      const res = await authenticateStaffUser(emailToUse, password);
+      const res = await authenticateStaffUser(selectedStaff.email, password);
 
       if (!res.success) {
         setErrorMsg(lang === 'hi' ? res.errorHi : res.errorEn);
@@ -195,7 +203,7 @@ export default function StaffAuth({
                   {lang === 'hi' ? 'लॉगिन क्रेडेंशियल' : 'Staff Access Credential'}:
                 </span>
                 <span className="text-[11px] font-mono text-stone-600 font-bold bg-white px-2 py-0.5 rounded border border-stone-200">
-                  {selectedStaff?.email}
+                  {selectedStaff ? selectedStaff.email : (lang === 'hi' ? 'ऊपर से स्टाफ सदस्य चुनें' : 'Select a staff account above')}
                 </span>
               </div>
 
@@ -210,7 +218,7 @@ export default function StaffAuth({
                     required
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    placeholder="Enter security password"
+                    placeholder={lang === 'hi' ? "पासवर्ड दर्ज करें" : "Enter password"}
                     className="w-full pl-10 pr-10 py-2.5 text-sm bg-white border border-stone-300 rounded-xl font-mono focus:outline-none focus:ring-2 focus:ring-[#0891B2]"
                   />
                   <button
@@ -221,20 +229,6 @@ export default function StaffAuth({
                     {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </button>
                 </div>
-              </div>
-
-              {/* Password Hint / Quick Set for easy staff use */}
-              <div className="flex items-center justify-between text-[11px] pt-1">
-                <span className="text-stone-500">
-                  {lang === 'hi' ? 'पासवर्ड:' : 'Default Password:'} <strong className="font-mono text-stone-800">{selectedStaff?.initialPassword}</strong>
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setPassword(selectedStaff?.initialPassword)}
-                  className="text-[11px] font-bold text-[#0891B2] hover:underline"
-                >
-                  {lang === 'hi' ? 'ऑटो भरें' : 'Fill Default'}
-                </button>
               </div>
             </div>
 
@@ -253,7 +247,7 @@ export default function StaffAuth({
             {/* Big Touch-Friendly Login Button */}
             <button
               type="submit"
-              disabled={loading}
+              disabled={loading || !selectedStaff || !password}
               className="w-full py-3.5 px-6 bg-gradient-to-r from-[#D4A373] via-[#c49363] to-[#B88758] hover:from-[#c49363] hover:to-[#A77647] text-stone-950 font-black text-sm sm:text-base rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-50 active:scale-[0.99]"
             >
               {loading ? (

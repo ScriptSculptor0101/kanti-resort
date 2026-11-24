@@ -4,7 +4,7 @@ export const TRANSLATIONS = {
     // App Header & Branding
     appName: "Kanti Resort Staff App",
     tagline: "Kedarnath Route • Phata Front Desk",
-    roomsTotal: "Total 12 Rooms",
+    roomsTotal: "Total 25 Rooms (12 Double, 8 Triple, 5 Four-Bed)",
     staffRole: "Authorized Staff",
     shift: "Active Shift",
     logout: "Log Out",
@@ -201,7 +201,7 @@ export const TRANSLATIONS = {
     // App Header & Branding
     appName: "कांति रिसॉर्ट स्टाफ ऐप",
     tagline: "केदारनाथ मार्ग • फाटा रिसेप्शन डेस्क",
-    roomsTotal: "कुल 12 कमरे",
+    roomsTotal: "कुल 25 कमरे (12 डबल, 8 ट्रिपल, 5 फोर-बेड)",
     staffRole: "अधिकृत स्टाफ",
     shift: "वर्तमान शिफ्ट",
     logout: "लॉग आउट",

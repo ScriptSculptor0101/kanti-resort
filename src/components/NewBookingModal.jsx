@@ -70,7 +70,21 @@ export default function NewBookingModal({
       if (initialData.check_out) setCheckOut(initialData.check_out);
       if (initialData.base_rate) setBaseRate(Number(initialData.base_rate));
       if (initialData.booking_type) setBookingType(initialData.booking_type);
+      
+      // Enforce clean, blank fields on fresh open
+      setGuestName('');
+      setPhone('');
+      setEmail('');
+      setGuestAddress('');
+      setIdProofType('Aadhaar Card');
+      setIdProofNumber('');
+      setGuestGstin('');
+      setExtraCharges(0);
+      setDiscount(0);
+      setAdvanceAmount(0);
+      setNotes('');
       setErrorMsg('');
+      setOverlapConflict(null);
     }
   }, [isOpen, initialData]);
 

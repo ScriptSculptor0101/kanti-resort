@@ -32,6 +32,7 @@ export default function HorizontalBookingCalendar({
   
   const [daysCount, setDaysCount] = useState(14);
   const [selectedFloor, setSelectedFloor] = useState('all');
+  const [selectedCategory, setSelectedCategory] = useState('all');
   const [hoveredBooking, setHoveredBooking] = useState(null);
 
   // Generate date columns array
@@ -73,9 +74,14 @@ export default function HorizontalBookingCalendar({
   };
 
   const filteredRooms = useMemo(() => {
-    if (selectedFloor === 'all') return rooms;
-    return rooms.filter(r => r.floor === selectedFloor);
-  }, [rooms, selectedFloor]);
+    return rooms.filter(r => {
+      const matchFloor = selectedFloor === 'all' || r.floor === selectedFloor;
+      const matchCat = selectedCategory === 'all' || 
+        r.category === selectedCategory || 
+        r.category.toLowerCase().includes(selectedCategory.toLowerCase());
+      return matchFloor && matchCat;
+    });
+  }, [rooms, selectedFloor, selectedCategory]);
 
   const bookingsByRoom = useMemo(() => {
     const map = {};
@@ -170,6 +176,17 @@ export default function HorizontalBookingCalendar({
             <option value="Ground Floor">{t.calGroundFloor}</option>
             <option value="First Floor">{t.calFirstFloor}</option>
             <option value="Second Floor">{t.calSecondFloor}</option>
+          </select>
+
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            className="text-xs bg-stone-50 border-2 border-stone-200 rounded-xl px-3 py-2 font-bold text-stone-800 focus:outline-none"
+          >
+            <option value="all">{lang === 'hi' ? 'सभी कमरे (25)' : 'All Rooms (25)'}</option>
+            <option value="Double Bed">{lang === 'hi' ? 'डबल बेड (12)' : 'Double Bed (12)'}</option>
+            <option value="Triple Bed">{lang === 'hi' ? 'ट्रिपल बेड (8)' : 'Triple Bed (8)'}</option>
+            <option value="Four Bed">{lang === 'hi' ? 'फोर बेड (5)' : 'Four Bed (5)'}</option>
           </select>
 
         </div>

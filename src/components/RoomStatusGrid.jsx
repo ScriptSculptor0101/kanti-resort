@@ -112,7 +112,9 @@ export default function RoomStatusGrid({
   // Filtered rooms
   const filteredRooms = rooms.filter(room => {
     const matchesFloor = selectedFloor === 'all' || room.floor === selectedFloor;
-    const matchesCategory = selectedCategory === 'all' || room.category === selectedCategory;
+    const matchesCategory = selectedCategory === 'all' || 
+      room.category === selectedCategory || 
+      room.category.toLowerCase().includes(selectedCategory.toLowerCase());
     const matchesStatus = statusFilter === 'all' || room.status === statusFilter;
     const matchesSearch = 
       room.room_number.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -268,9 +270,20 @@ export default function RoomStatusGrid({
             className="text-xs bg-stone-50 border-2 border-stone-200 rounded-xl px-3 py-2.5 font-bold text-stone-800 focus:outline-none"
           >
             <option value="all">{lang === 'hi' ? 'सभी मंजिलें (All Floors)' : 'All Floors'}</option>
-            <option value="Ground Floor">{t.calGroundFloor} (101-104)</option>
-            <option value="First Floor">{t.calFirstFloor} (201-204)</option>
-            <option value="Second Floor">{t.calSecondFloor} (301-304)</option>
+            <option value="Ground Floor">{t.calGroundFloor} (101-106)</option>
+            <option value="First Floor">{t.calFirstFloor} (201-210)</option>
+            <option value="Second Floor">{t.calSecondFloor} (301-309)</option>
+          </select>
+
+          <select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            className="text-xs bg-stone-50 border-2 border-stone-200 rounded-xl px-3 py-2.5 font-bold text-stone-800 focus:outline-none"
+          >
+            <option value="all">{lang === 'hi' ? 'सभी कमरे (25)' : 'All Room Types (25)'}</option>
+            <option value="Double Bed">{lang === 'hi' ? 'डबल बेड (12 कमरे)' : 'Double Bed (12 Rooms)'}</option>
+            <option value="Triple Bed">{lang === 'hi' ? 'ट्रिपल बेड (8 कमरे)' : 'Triple Bed (8 Rooms)'}</option>
+            <option value="Four Bed">{lang === 'hi' ? 'फोर बेड (5 कमरे)' : 'Four Bed (5 Rooms)'}</option>
           </select>
 
           <button
